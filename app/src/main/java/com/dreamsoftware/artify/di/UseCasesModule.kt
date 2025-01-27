@@ -3,23 +3,23 @@ package com.dreamsoftware.artify.di
 import com.dreamsoftware.artify.domain.model.AuthRequestBO
 import com.dreamsoftware.artify.domain.model.SignUpBO
 import com.dreamsoftware.artify.domain.repository.IImageRepository
-import com.dreamsoftware.artify.domain.repository.IInquizeRepository
+import com.dreamsoftware.artify.domain.repository.IArtworkRepository
 import com.dreamsoftware.artify.domain.repository.IMultiModalLanguageModelRepository
 import com.dreamsoftware.artify.domain.repository.IPreferenceRepository
 import com.dreamsoftware.artify.domain.repository.IUserRepository
 import com.dreamsoftware.artify.domain.service.ISoundPlayerService
 import com.dreamsoftware.artify.domain.service.ITTSService
 import com.dreamsoftware.artify.domain.service.ITranscriptionService
-import com.dreamsoftware.artify.domain.usecase.AddInquizeMessageUseCase
-import com.dreamsoftware.artify.domain.usecase.CreateInquizeUseCase
-import com.dreamsoftware.artify.domain.usecase.DeleteInquizeByIdUseCase
+import com.dreamsoftware.artify.domain.usecase.AddArtworkMessageUseCase
+import com.dreamsoftware.artify.domain.usecase.CreateArtworkUseCase
+import com.dreamsoftware.artify.domain.usecase.DeleteArtworkByIdUseCase
 import com.dreamsoftware.artify.domain.usecase.TranscribeUserQuestionUseCase
 import com.dreamsoftware.artify.domain.usecase.EndUserSpeechCaptureUseCase
-import com.dreamsoftware.artify.domain.usecase.GetAllInquizeByUserUseCase
+import com.dreamsoftware.artify.domain.usecase.GetAllArtworksByUserUseCase
 import com.dreamsoftware.artify.domain.usecase.GetAssistantMutedStatusUseCase
 import com.dreamsoftware.artify.domain.usecase.GetAuthenticateUserDetailUseCase
-import com.dreamsoftware.artify.domain.usecase.GetInquizeByIdUseCase
-import com.dreamsoftware.artify.domain.usecase.SearchInquizeUseCase
+import com.dreamsoftware.artify.domain.usecase.GetArtworkByIdUseCase
+import com.dreamsoftware.artify.domain.usecase.SearchArtworkUseCase
 import com.dreamsoftware.artify.domain.usecase.SignInUseCase
 import com.dreamsoftware.artify.domain.usecase.SignOffUseCase
 import com.dreamsoftware.artify.domain.usecase.SignUpUseCase
@@ -98,41 +98,41 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideCreateInquizeUseCase(
+    fun provideCreateArtworkUseCase(
         userRepository: IUserRepository,
         imageRepository: IImageRepository,
-        inquizeRepository: IInquizeRepository,
+        artworkRepository: IArtworkRepository,
         multiModalLanguageModelRepository: IMultiModalLanguageModelRepository
-    ): CreateInquizeUseCase =
-        CreateInquizeUseCase(
+    ): CreateArtworkUseCase =
+        CreateArtworkUseCase(
             userRepository = userRepository,
             imageRepository = imageRepository,
-            inquizeRepository = inquizeRepository,
+            artworkRepository = artworkRepository,
             multiModalLanguageModelRepository = multiModalLanguageModelRepository
         )
 
     @Provides
     @ViewModelScoped
-    fun provideDeleteInquizeByIdUseCase(
+    fun provideDeleteArtworkByIdUseCase(
         userRepository: IUserRepository,
         imageRepository: IImageRepository,
-        inquizeRepository: IInquizeRepository
-    ): DeleteInquizeByIdUseCase =
-        DeleteInquizeByIdUseCase(
+        artworkRepository: IArtworkRepository
+    ): DeleteArtworkByIdUseCase =
+        DeleteArtworkByIdUseCase(
             userRepository = userRepository,
             imageRepository = imageRepository,
-            inquizeRepository = inquizeRepository
+            artworkRepository = artworkRepository
         )
 
     @Provides
     @ViewModelScoped
-    fun provideGetAllInquizeByUserUseCase(
+    fun provideGetAllArtworkByUserUseCase(
         userRepository: IUserRepository,
-        inquizeRepository: IInquizeRepository
-    ): GetAllInquizeByUserUseCase =
-        GetAllInquizeByUserUseCase(
+        artworkRepository: IArtworkRepository
+    ): GetAllArtworksByUserUseCase =
+        GetAllArtworksByUserUseCase(
             userRepository = userRepository,
-            inquizeRepository = inquizeRepository
+            artworkRepository = artworkRepository
         )
 
     @Provides
@@ -146,13 +146,13 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetInquizeByIdUseCase(
+    fun provideGetArtworkByIdUseCase(
         userRepository: IUserRepository,
-        inquizeRepository: IInquizeRepository
-    ): GetInquizeByIdUseCase =
-        GetInquizeByIdUseCase(
+        artworkRepository: IArtworkRepository
+    ): GetArtworkByIdUseCase =
+        GetArtworkByIdUseCase(
             userRepository = userRepository,
-            inquizeRepository = inquizeRepository
+            artworkRepository = artworkRepository
         )
 
     @Provides
@@ -166,14 +166,14 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideAddInquizeQuestionUseCase(
+    fun provideAddArtworkQuestionUseCase(
         userRepository: IUserRepository,
-        inquizeRepository: IInquizeRepository,
+        artworkRepository: IArtworkRepository,
         multiModalLanguageModelRepository: IMultiModalLanguageModelRepository
-    ): AddInquizeMessageUseCase =
-        AddInquizeMessageUseCase(
+    ): AddArtworkMessageUseCase =
+        AddArtworkMessageUseCase(
             userRepository = userRepository,
-            inquizeRepository = inquizeRepository,
+            artworkRepository = artworkRepository,
             multiModalLanguageModelRepository = multiModalLanguageModelRepository
         )
 
@@ -210,15 +210,12 @@ class UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun provideSearchInquizeUseCase(
+    fun provideSearchArtworkUseCase(
         userRepository: IUserRepository,
-        inquizeRepository: IInquizeRepository,
-    ): SearchInquizeUseCase =
-        SearchInquizeUseCase(
+        artworkRepository: IArtworkRepository,
+    ): SearchArtworkUseCase =
+        SearchArtworkUseCase(
             userRepository = userRepository,
-            inquizeRepository = inquizeRepository
+            artworkRepository = artworkRepository
         )
-
-
-
 }

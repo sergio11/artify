@@ -3,18 +3,18 @@ package com.dreamsoftware.artify.di
 import com.dreamsoftware.brownie.utils.IBrownieOneSideMapper
 import com.dreamsoftware.artify.data.remote.datasource.IAuthRemoteDataSource
 import com.dreamsoftware.artify.data.remote.datasource.IImageDataSource
-import com.dreamsoftware.artify.data.remote.datasource.IInquizeDataSource
+import com.dreamsoftware.artify.data.remote.datasource.IArtworkDataSource
 import com.dreamsoftware.artify.data.remote.datasource.impl.AuthRemoteDataSourceImpl
 import com.dreamsoftware.artify.data.remote.datasource.impl.ImageDataSourceImpl
-import com.dreamsoftware.artify.data.remote.datasource.impl.InquizeDataSourceImpl
-import com.dreamsoftware.artify.data.remote.dto.AddInquizeMessageDTO
+import com.dreamsoftware.artify.data.remote.datasource.impl.ArtworkDataSourceImpl
+import com.dreamsoftware.artify.data.remote.dto.AddArtworkMessageDTO
 import com.dreamsoftware.artify.data.remote.dto.AuthUserDTO
-import com.dreamsoftware.artify.data.remote.dto.CreateInquizeDTO
-import com.dreamsoftware.artify.data.remote.dto.InquizeDTO
-import com.dreamsoftware.artify.data.remote.mapper.AddInquizeMessageRemoteMapper
-import com.dreamsoftware.artify.data.remote.mapper.CreateInquizeRemoteMapper
+import com.dreamsoftware.artify.data.remote.dto.CreateArtworkDTO
+import com.dreamsoftware.artify.data.remote.dto.ArtworkDTO
+import com.dreamsoftware.artify.data.remote.mapper.AddArtworkMessageRemoteMapper
+import com.dreamsoftware.artify.data.remote.mapper.CreateArtworkRemoteMapper
 import com.dreamsoftware.artify.data.remote.mapper.UserAuthenticatedMapper
-import com.dreamsoftware.artify.data.remote.mapper.InquizeRemoteMapper
+import com.dreamsoftware.artify.data.remote.mapper.ArtworkRemoteMapper
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -44,15 +44,15 @@ class FirebaseModule {
 
     @Provides
     @Singleton
-    fun provideUserQuestionRemoteMapper(): IBrownieOneSideMapper<Map<String, Any?>, InquizeDTO> = InquizeRemoteMapper()
+    fun provideUserQuestionRemoteMapper(): IBrownieOneSideMapper<Map<String, Any?>, ArtworkDTO> = ArtworkRemoteMapper()
 
     @Provides
     @Singleton
-    fun provideSaveUserQuestionRemoteMapper(): IBrownieOneSideMapper<CreateInquizeDTO, Map<String, Any?>> = CreateInquizeRemoteMapper()
+    fun provideSaveUserQuestionRemoteMapper(): IBrownieOneSideMapper<CreateArtworkDTO, Map<String, Any?>> = CreateArtworkRemoteMapper()
 
     @Provides
     @Singleton
-    fun provideAddInquizeMessageRemoteMapper(): IBrownieOneSideMapper<AddInquizeMessageDTO, List<Map<String, String>>> = AddInquizeMessageRemoteMapper()
+    fun provideAddArtworkMessageRemoteMapper(): IBrownieOneSideMapper<AddArtworkMessageDTO, List<Map<String, String>>> = AddArtworkMessageRemoteMapper()
 
     /**
      * Provides a singleton instance of FirebaseAuth.
@@ -106,16 +106,16 @@ class FirebaseModule {
 
     @Provides
     @Singleton
-    fun provideInquizeDataSource(
+    fun provideArtworkDataSource(
         firestore: FirebaseFirestore,
-        saveUserQuestionMapper: IBrownieOneSideMapper<CreateInquizeDTO, Map<String, Any?>>,
-        addInquizeMessageMapper: IBrownieOneSideMapper<AddInquizeMessageDTO, List<Map<String, String>>>,
-        userQuestionMapper: IBrownieOneSideMapper<Map<String, Any?>, InquizeDTO>,
+        saveUserQuestionMapper: IBrownieOneSideMapper<CreateArtworkDTO, Map<String, Any?>>,
+        addArtworkMessageMapper: IBrownieOneSideMapper<AddArtworkMessageDTO, List<Map<String, String>>>,
+        userQuestionMapper: IBrownieOneSideMapper<Map<String, Any?>, ArtworkDTO>,
         @IoDispatcher dispatcher: CoroutineDispatcher
-    ): IInquizeDataSource = InquizeDataSourceImpl(
+    ): IArtworkDataSource = ArtworkDataSourceImpl(
         firestore,
         saveUserQuestionMapper,
-        addInquizeMessageMapper,
+        addArtworkMessageMapper,
         userQuestionMapper,
         dispatcher
     )

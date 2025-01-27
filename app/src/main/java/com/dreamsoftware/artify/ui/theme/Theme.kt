@@ -71,7 +71,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun InquizeTheme(content: @Composable () -> Unit) {
+fun ArtifyTheme(content: @Composable () -> Unit) {
     BrownieTheme(
         lightColorScheme = LightColorScheme,
         darkColorScheme = DarkColorScheme,

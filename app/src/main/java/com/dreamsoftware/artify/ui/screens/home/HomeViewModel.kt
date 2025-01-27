@@ -6,18 +6,18 @@ import com.dreamsoftware.brownie.core.SideEffect
 import com.dreamsoftware.brownie.core.UiState
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.artify.di.HomeErrorMapper
-import com.dreamsoftware.artify.domain.model.InquizeBO
-import com.dreamsoftware.artify.domain.usecase.DeleteInquizeByIdUseCase
-import com.dreamsoftware.artify.domain.usecase.GetAllInquizeByUserUseCase
-import com.dreamsoftware.artify.domain.usecase.SearchInquizeUseCase
+import com.dreamsoftware.artify.domain.model.ArtworkBO
+import com.dreamsoftware.artify.domain.usecase.DeleteArtworkByIdUseCase
+import com.dreamsoftware.artify.domain.usecase.GetAllArtworksByUserUseCase
+import com.dreamsoftware.artify.domain.usecase.SearchArtworkUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getAllInquizeByUserUseCase: GetAllInquizeByUserUseCase,
-    private val deleteInquizeByIdUseCase: DeleteInquizeByIdUseCase,
-    private val searchInquizeUseCase: SearchInquizeUseCase,
+    private val getAllArtworksByUserUseCase: GetAllArtworksByUserUseCase,
+    private val deleteArtworkByIdUseCase: DeleteArtworkByIdUseCase,
+    private val searchArtworkUseCase: SearchArtworkUseCase,
     @HomeErrorMapper private val errorMapper: IBrownieErrorMapper
 ) : BrownieViewModel<HomeUiState, HomeSideEffects>(), HomeScreenActionListener {
 
@@ -27,12 +27,12 @@ class HomeViewModel @Inject constructor(
 
     override fun onGetDefaultState(): HomeUiState = HomeUiState()
 
-    override fun onInquizeClicked(inquizeBO: InquizeBO) {
-        launchSideEffect(HomeSideEffects.OpenInquizeChat(inquizeBO.uid))
+    override fun onArtworkClicked(artworkBO: ArtworkBO) {
+        launchSideEffect(HomeSideEffects.OpenArtworkChat(artworkBO.uid))
     }
 
-    override fun onInquizeDetailClicked(inquizeBO: InquizeBO) {
-        launchSideEffect(HomeSideEffects.OpenInquizeDetail(inquizeBO.uid))
+    override fun onArtworkDetailClicked(artworkBO: ArtworkBO) {
+        launchSideEffect(HomeSideEffects.OpenArtworkDetail(artworkBO.uid))
     }
 
     override fun onSearchQueryUpdated(newSearchQuery: String) {
@@ -40,43 +40,43 @@ class HomeViewModel @Inject constructor(
         onLoadData()
     }
 
-    override fun onInquizeDeleted(inquizeBO: InquizeBO) {
-        updateState { it.copy(confirmDeleteInquize = inquizeBO) }
+    override fun onArtworkDeleted(artworkBO: ArtworkBO) {
+        updateState { it.copy(confirmDeleteArtwork = artworkBO) }
     }
 
-    override fun onDeleteInquizeConfirmed() {
+    override fun onDeleteArtworkConfirmed() {
         doOnUiState {
-            confirmDeleteInquize?.let { inquize ->
+            confirmDeleteArtwork?.let { artwork ->
                 executeUseCaseWithParams(
-                    useCase = deleteInquizeByIdUseCase,
-                    params = DeleteInquizeByIdUseCase.Params(
-                        id = inquize.uid
+                    useCase = deleteArtworkByIdUseCase,
+                    params = DeleteArtworkByIdUseCase.Params(
+                        id = artwork.uid
                     ),
                     onSuccess = {
-                        onDeleteInquizeCompleted(inquize)
+                        onDeleteArtworkCompleted(artwork)
                     },
                     onMapExceptionToState = ::onMapExceptionToState
                 )
             }
-            updateState { it.copy(confirmDeleteInquize = null) }
+            updateState { it.copy(confirmDeleteArtwork = null) }
         }
     }
 
-    override fun onDeleteInquizeCancelled() {
-        updateState { it.copy(confirmDeleteInquize = null) }
+    override fun onDeleteArtworkCancelled() {
+        updateState { it.copy(confirmDeleteArtwork = null) }
     }
 
     override fun onInfoMessageCleared() {
         updateState { it.copy(infoMessage = null) }
     }
 
-    private fun onDeleteInquizeCompleted(inquize: InquizeBO) {
-        updateState { it.copy(inquizeList = it.inquizeList.filter { iq -> iq.uid != inquize.uid }) }
+    private fun onDeleteArtworkCompleted(artwork: ArtworkBO) {
+        updateState { it.copy(artworkList = it.artworkList.filter { iq -> iq.uid != artwork.uid }) }
     }
 
-    private fun onLoadInquizeCompleted(data: List<InquizeBO>) {
+    private fun onLoadArtworkCompleted(data: List<ArtworkBO>) {
         updateState {
-            it.copy(inquizeList = data)
+            it.copy(artworkList = data)
         }
     }
 
@@ -84,15 +84,15 @@ class HomeViewModel @Inject constructor(
         doOnUiState {
             if(searchQuery.isEmpty()) {
                 executeUseCase(
-                    useCase = getAllInquizeByUserUseCase,
-                    onSuccess = ::onLoadInquizeCompleted,
+                    useCase = getAllArtworksByUserUseCase,
+                    onSuccess = ::onLoadArtworkCompleted,
                     onMapExceptionToState = ::onMapExceptionToState
                 )
             } else {
                 executeUseCaseWithParams(
-                    useCase = searchInquizeUseCase,
-                    params = SearchInquizeUseCase.Params(term = searchQuery),
-                    onSuccess = ::onLoadInquizeCompleted,
+                    useCase = searchArtworkUseCase,
+                    params = SearchArtworkUseCase.Params(term = searchQuery),
+                    onSuccess = ::onLoadArtworkCompleted,
                     onMapExceptionToState = ::onMapExceptionToState
                 )
             }
@@ -109,9 +109,9 @@ class HomeViewModel @Inject constructor(
 data class HomeUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val confirmDeleteInquize: InquizeBO? = null,
+    val confirmDeleteArtwork: ArtworkBO? = null,
     val infoMessage: String? = null,
-    val inquizeList: List<InquizeBO> = emptyList(),
+    val artworkList: List<ArtworkBO> = emptyList(),
     val searchQuery: String = String.EMPTY
 ): UiState<HomeUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): HomeUiState =
@@ -120,6 +120,6 @@ data class HomeUiState(
 
 
 sealed interface HomeSideEffects: SideEffect {
-    data class OpenInquizeDetail(val id: String): HomeSideEffects
-    data class OpenInquizeChat(val id: String): HomeSideEffects
+    data class OpenArtworkDetail(val id: String): HomeSideEffects
+    data class OpenArtworkChat(val id: String): HomeSideEffects
 }

@@ -46,13 +46,13 @@ import com.dreamsoftware.brownie.component.BrownieType
 import com.dreamsoftware.brownie.component.screen.BrownieScreenContent
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.artify.R
-import com.dreamsoftware.artify.domain.model.InquizeMessageBO
-import com.dreamsoftware.artify.domain.model.InquizeMessageRoleEnum
+import com.dreamsoftware.artify.domain.model.ArtworkMessageBO
+import com.dreamsoftware.artify.domain.model.ArtworkMessageRoleEnum
 import com.dreamsoftware.artify.ui.components.AnimatedMicButtonWithTranscript
 import com.dreamsoftware.artify.ui.components.ChatMessageCard
 import com.dreamsoftware.artify.ui.components.LoadingDialog
 import com.dreamsoftware.artify.ui.components.Role
-import com.dreamsoftware.artify.ui.theme.InquizeTheme
+import com.dreamsoftware.artify.ui.theme.ArtifyTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -174,7 +174,7 @@ fun ChatScreenContent(
 @Composable
 private fun ChatMessagesList(
     modifier: Modifier = Modifier,
-    messageList: List<InquizeMessageBO>
+    messageList: List<ArtworkMessageBO>
 ) {
     val lazyListState = rememberLazyListState()
     if(messageList.isNotEmpty()) {
@@ -195,7 +195,7 @@ private fun ChatMessagesList(
                 ChatMessageCard(
                     modifier = Modifier
                         .align(
-                            if (chatMessage.role == InquizeMessageRoleEnum.USER) {
+                            if (chatMessage.role == ArtworkMessageRoleEnum.USER) {
                                 Alignment.CenterEnd
                             } else {
                                 Alignment.CenterStart
@@ -203,7 +203,7 @@ private fun ChatMessagesList(
                         )
                         .widthIn(max = this.maxWidth / 1.5f),
                     messageContent = chatMessage.text,
-                    role = if (chatMessage.role == InquizeMessageRoleEnum.USER) {
+                    role = if (chatMessage.role == ArtworkMessageRoleEnum.USER) {
                         Role.USER
                     }  else {
                         Role.RESPONDER
@@ -285,7 +285,7 @@ private class ChatScreenHaptics(
 @PreviewDynamicColors
 @Composable
 private fun ChatScreenPreview() {
-    InquizeTheme {
+    ArtifyTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background

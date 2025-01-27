@@ -38,7 +38,7 @@ import com.dreamsoftware.brownie.component.BrownieTextTypeEnum
 import com.dreamsoftware.brownie.component.screen.BrownieScreenContent
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.artify.R
-import com.dreamsoftware.artify.ui.screens.core.CommonInquizeImage
+import com.dreamsoftware.artify.ui.screens.core.CommonArtworkImage
 
 @Composable
 fun HomeScreenContent(
@@ -69,14 +69,14 @@ fun HomeScreenContent(
                 }
             }
             BrownieDialog(
-                isVisible = confirmDeleteInquize != null,
+                isVisible = confirmDeleteArtwork != null,
                 mainLogoRes = R.drawable.main_logo_inverse,
                 titleRes = R.string.delete_artwork_dialog_title,
                 descriptionRes = R.string.delete_artwork_dialog_description,
                 cancelRes = R.string.delete_artwork_dialog_cancel,
                 acceptRes = R.string.delete_artwork_dialog_accept,
-                onCancelClicked = actionListener::onDeleteInquizeCancelled,
-                onAcceptClicked = actionListener::onDeleteInquizeConfirmed,
+                onCancelClicked = actionListener::onDeleteArtworkCancelled,
+                onAcceptClicked = actionListener::onDeleteArtworkConfirmed,
             )
             BrownieScreenContent(
                 hasTopBar = false,
@@ -124,13 +124,13 @@ fun HomeScreenContent(
                     }
                     if (isLoading) {
                         BrownieColumnProgressIndicator(textIndicatorRes = R.string.content_loading_placeholder)
-                    } else if (inquizeList.isEmpty()) {
+                    } else if (artworkList.isEmpty()) {
                         BrownieColumnPlaceHolder(
                             titleRes = R.string.nothing_found,
                             iconRes = R.drawable.ic_no_data_found
                         )
                     } else {
-                        InquizeList(
+                        ArtworkList(
                             uiState = uiState,
                             actionListener = actionListener,
                             nestedScrollConnection = nestedScrollConnection
@@ -145,7 +145,7 @@ fun HomeScreenContent(
 
 
 @Composable
-private fun InquizeList(
+private fun ArtworkList(
     uiState: HomeUiState,
     actionListener: HomeScreenActionListener,
     nestedScrollConnection: NestedScrollConnection
@@ -161,21 +161,21 @@ private fun InquizeList(
                     )
                     .nestedScroll(nestedScrollConnection),
             ) {
-                items(inquizeList.size) { idx ->
-                    val inquize = inquizeList[idx]
+                items(artworkList.size) { idx ->
+                    val artwork = artworkList[idx]
                     BrownieCard(
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(10.dp)
                             .height(250.dp)
                             .clickable {
-                                actionListener.onInquizeClicked(inquize)
+                                actionListener.onArtworkClicked(artwork)
                             },
                         border = BorderStroke(5.dp, secondary)
                     ) {
-                        CommonInquizeImage(
+                        CommonArtworkImage(
                             modifier = Modifier.fillMaxSize(),
-                            imageUrl = inquize.imageUrl
+                            imageUrl = artwork.imageUrl
                         )
                         Row(
                             modifier = Modifier
@@ -190,15 +190,15 @@ private fun InquizeList(
                                 iconTintColor = primary,
                                 iconRes = R.drawable.ic_detail
                             ) {
-                                actionListener.onInquizeDetailClicked(inquize)
+                                actionListener.onArtworkDetailClicked(artwork)
                             }
                             BrownieIconButton(
                                 containerSize = 40.dp,
                                 containerColor = onPrimary,
                                 iconTintColor = primary,
-                                iconRes = R.drawable.ic_delete_inquize
+                                iconRes = R.drawable.ic_delete_artwork
                             ) {
-                                actionListener.onInquizeDeleted(inquize)
+                                actionListener.onArtworkDeleted(artwork)
                             }
                         }
                         BrownieText(
@@ -208,7 +208,7 @@ private fun InquizeList(
                                 .padding(horizontal = 15.dp, vertical = 20.dp)
                                 .align(Alignment.BottomStart),
                             type = BrownieTextTypeEnum.LABEL_MEDIUM,
-                            titleText = inquize.question,
+                            titleText = artwork.question,
                             textAlign = TextAlign.Center,
                             maxLines = 2,
                             textBold = true,

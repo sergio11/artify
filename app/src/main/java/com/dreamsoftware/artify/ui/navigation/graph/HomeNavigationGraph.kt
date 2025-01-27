@@ -6,8 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.dreamsoftware.artify.ui.navigation.Screens
 import com.dreamsoftware.artify.ui.screens.chat.ChatScreen
-import com.dreamsoftware.artify.ui.screens.create.CreateInquizeScreen
-import com.dreamsoftware.artify.ui.screens.detail.InquizeDetailScreen
+import com.dreamsoftware.artify.ui.screens.create.CreateArtworkScreen
+import com.dreamsoftware.artify.ui.screens.detail.ArtworkDetailScreen
 import com.dreamsoftware.artify.ui.screens.home.HomeScreen
 import com.dreamsoftware.artify.ui.screens.settings.SettingsScreen
 
@@ -34,10 +34,10 @@ fun NavGraphBuilder.HomeNavigationGraph(
         }
 
         composable(
-            route = Screens.Main.Home.CreateInquize.route
+            route = Screens.Main.Home.CreateArtwork.route
         ) {
             with(navController) {
-                CreateInquizeScreen(
+                CreateArtworkScreen(
                     onGoToChat = {
                         popBackStack()
                         navigate(Screens.Main.Home.Chat.buildRoute(it))
@@ -55,7 +55,7 @@ fun NavGraphBuilder.HomeNavigationGraph(
             navBackStackEntry.arguments?.let { args ->
                 Screens.Main.Home.Detail.parseArgs(args)?.let {
                     with(navController) {
-                        InquizeDetailScreen(
+                        ArtworkDetailScreen(
                             args = it,
                             onGoToChat = {
                                 navigate(Screens.Main.Home.Chat.buildRoute(it))

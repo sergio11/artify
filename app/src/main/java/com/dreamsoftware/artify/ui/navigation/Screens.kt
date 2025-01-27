@@ -5,7 +5,7 @@ import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.dreamsoftware.artify.ui.screens.chat.ChatScreenArgs
-import com.dreamsoftware.artify.ui.screens.detail.InquizeDetailScreenArgs
+import com.dreamsoftware.artify.ui.screens.detail.ArtworkDetailScreenArgs
 
 sealed class Screens(val route: String, arguments: List<NamedNavArgument> = emptyList()) {
 
@@ -27,38 +27,38 @@ sealed class Screens(val route: String, arguments: List<NamedNavArgument> = empt
                 val startDestination = Info.route
             }
             data object Info : Screens("info")
-            data object CreateInquize : Screens("CreateInquize")
+            data object CreateArtwork : Screens("CreateArtwork")
             data object Settings: Screens("settings")
-            data object Detail : Screens("detail/{inquize_id}", arguments = listOf(
-                navArgument("inquize_id") {
+            data object Detail : Screens("detail/{artwork_id}", arguments = listOf(
+                navArgument("artwork_id") {
                     type = NavType.StringType
                 }
             )) {
-                fun buildRoute(inquizeId: String): String =
+                fun buildRoute(artworkId: String): String =
                     route.replace(
-                        oldValue = "{inquize_id}",
-                        newValue = inquizeId
+                        oldValue = "{artwork_id}",
+                        newValue = artworkId
                     )
 
-                fun parseArgs(args: Bundle): InquizeDetailScreenArgs? = with(args) {
-                    getString("inquize_id")?.let {
-                        InquizeDetailScreenArgs(id = it)
+                fun parseArgs(args: Bundle): ArtworkDetailScreenArgs? = with(args) {
+                    getString("artwork_id")?.let {
+                        ArtworkDetailScreenArgs(id = it)
                     }
                 }
             }
-            data object Chat : Screens("chat/{inquize_id}", arguments = listOf(
-                navArgument("inquize_id") {
+            data object Chat : Screens("chat/{artwork_id}", arguments = listOf(
+                navArgument("artwork_id") {
                     type = NavType.StringType
                 }
             )) {
-                fun buildRoute(inquizeId: String): String =
+                fun buildRoute(artworkId: String): String =
                     route.replace(
-                        oldValue = "{inquize_id}",
-                        newValue = inquizeId
+                        oldValue = "{artwork_id}",
+                        newValue = artworkId
                     )
 
                 fun parseArgs(args: Bundle): ChatScreenArgs? = with(args) {
-                    getString("inquize_id")?.let {
+                    getString("artwork_id")?.let {
                         ChatScreenArgs(id = it)
                     }
                 }
