@@ -12,12 +12,12 @@ class SignInException(message: String? = null, cause: Throwable? = null): UserDa
 class SignUpException(message: String? = null, cause: Throwable? = null): UserDataException(message, cause)
 class CloseSessionException(message: String? = null, cause: Throwable? = null): UserDataException(message, cause)
 
-class SearchInquizeException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
-class AddInquizeMessageException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
-class SaveInquizeException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
-class FetchInquizeByIdException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
-class FetchAllInquizeException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
-class DeleteInquizeByIdException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
+class SearchArtworkException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
+class AddArtworkMessageException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
+class SaveArtworkException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
+class FetchArtworkByIdException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
+class FetchAllArtworkException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
+class DeleteArtworkByIdException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
 
 class SavePictureException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)
 class DeletePictureException(message: String? = null, cause: Throwable? = null): DomainRepositoryException(message, cause)

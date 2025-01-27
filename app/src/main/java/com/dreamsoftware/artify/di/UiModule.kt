@@ -5,7 +5,7 @@ import com.dreamsoftware.brownie.core.IBrownieErrorMapper
 import com.dreamsoftware.artify.ui.screens.account.signin.SignInScreenSimpleErrorMapper
 import com.dreamsoftware.artify.ui.screens.account.signup.SignUpScreenSimpleErrorMapper
 import com.dreamsoftware.artify.ui.screens.chat.ChatSimpleErrorMapper
-import com.dreamsoftware.artify.ui.screens.detail.InquizeDetailScreenSimpleErrorMapper
+import com.dreamsoftware.artify.ui.screens.detail.ArtworkDetailScreenSimpleErrorMapper
 import com.dreamsoftware.artify.ui.screens.home.HomeSimpleErrorMapper
 import dagger.Module
 import dagger.Provides
@@ -52,18 +52,18 @@ class UiModule {
 
     @Provides
     @ViewModelScoped
-    @InquizeDetailErrorMapper
-    fun provideInquizeDetailErrorMapper(
+    @ArtworkDetailErrorMapper
+    fun provideArtworkDetailErrorMapper(
         @ApplicationContext context: Context
     ): IBrownieErrorMapper =
-        InquizeDetailScreenSimpleErrorMapper(context = context)
+        ArtworkDetailScreenSimpleErrorMapper(context = context)
 
 
     @Provides
     @ViewModelScoped
-    @CreateInquizeErrorMapper
-    fun provideCreateInquizeScreenSimpleErrorMapper(
+    @CreateArtworkErrorMapper
+    fun provideCreateArtworkScreenSimpleErrorMapper(
         @ApplicationContext context: Context
     ): IBrownieErrorMapper =
-        InquizeDetailScreenSimpleErrorMapper(context = context)
+        ArtworkDetailScreenSimpleErrorMapper(context = context)
 }

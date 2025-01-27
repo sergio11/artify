@@ -26,7 +26,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.artify.R
-import com.dreamsoftware.artify.ui.theme.InquizeTheme
+import com.dreamsoftware.artify.ui.theme.ArtifyTheme
 import com.dreamsoftware.artify.ui.theme.RoundedStarShape
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -95,7 +95,7 @@ fun AnimatedMicButton(
 @PreviewDynamicColors
 @Composable
 private fun AnimatedMicButtonPreview() {
-    InquizeTheme {
+    ArtifyTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background,

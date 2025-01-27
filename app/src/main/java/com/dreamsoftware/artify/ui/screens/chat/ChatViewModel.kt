@@ -6,12 +6,12 @@ import com.dreamsoftware.brownie.core.SideEffect
 import com.dreamsoftware.brownie.core.UiState
 import com.dreamsoftware.brownie.utils.EMPTY
 import com.dreamsoftware.artify.di.ChatErrorMapper
-import com.dreamsoftware.artify.domain.model.InquizeBO
-import com.dreamsoftware.artify.domain.model.InquizeMessageBO
-import com.dreamsoftware.artify.domain.usecase.AddInquizeMessageUseCase
+import com.dreamsoftware.artify.domain.model.ArtworkBO
+import com.dreamsoftware.artify.domain.model.ArtworkMessageBO
+import com.dreamsoftware.artify.domain.usecase.AddArtworkMessageUseCase
 import com.dreamsoftware.artify.domain.usecase.EndUserSpeechCaptureUseCase
 import com.dreamsoftware.artify.domain.usecase.GetAssistantMutedStatusUseCase
-import com.dreamsoftware.artify.domain.usecase.GetInquizeByIdUseCase
+import com.dreamsoftware.artify.domain.usecase.GetArtworkByIdUseCase
 import com.dreamsoftware.artify.domain.usecase.StopTextToSpeechUseCase
 import com.dreamsoftware.artify.domain.usecase.TextToSpeechUseCase
 import com.dreamsoftware.artify.domain.usecase.TranscribeUserQuestionUseCase
@@ -22,12 +22,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChatViewModel @Inject constructor(
-    private val getInquizeByIdUseCase: GetInquizeByIdUseCase,
+    private val getArtworkByIdUseCase: GetArtworkByIdUseCase,
     private val transcribeUserQuestionUseCase: TranscribeUserQuestionUseCase,
     private val endUserSpeechCaptureUseCase: EndUserSpeechCaptureUseCase,
     private val textToSpeechUseCase: TextToSpeechUseCase,
     private val stopTextToSpeechUseCase: StopTextToSpeechUseCase,
-    private val addInquizeMessageUseCase: AddInquizeMessageUseCase,
+    private val addArtworkMessageUseCase: AddArtworkMessageUseCase,
     private val updateAssistantMutedStatusUseCase: UpdateAssistantMutedStatusUseCase,
     private val getAssistantMutedStatusUseCase: GetAssistantMutedStatusUseCase,
     @ChatErrorMapper private val errorMapper: IBrownieErrorMapper
@@ -40,9 +40,9 @@ class ChatViewModel @Inject constructor(
             showLoadingState = false
         )
         executeUseCaseWithParams(
-            useCase = getInquizeByIdUseCase,
-            params = GetInquizeByIdUseCase.Params(id = id),
-            onSuccess = ::onGetInquizeCompletedSuccessfully,
+            useCase = getArtworkByIdUseCase,
+            params = GetArtworkByIdUseCase.Params(id = id),
+            onSuccess = ::onGetArtworkCompletedSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
         )
     }
@@ -113,21 +113,21 @@ class ChatViewModel @Inject constructor(
     private fun onListenForTranscriptionCompleted(transcription: String) {
         updateState { it.copy(isListening = false) }
         executeUseCaseWithParams(
-            useCase = addInquizeMessageUseCase,
-            params = AddInquizeMessageUseCase.Params(
-                inquizeId = uiState.value.inquizeId,
+            useCase = addArtworkMessageUseCase,
+            params = AddArtworkMessageUseCase.Params(
+                artworkId = uiState.value.artworkId,
                 question = transcription
             ),
-            onSuccess = ::onGetInquizeCompletedSuccessfully,
+            onSuccess = ::onGetArtworkCompletedSuccessfully,
             onMapExceptionToState = ::onMapExceptionToState
         )
     }
 
-    private fun onGetInquizeCompletedSuccessfully(inquizeBO: InquizeBO) {
-        updateState { it.copy(inquizeId = inquizeBO.uid, messageList = inquizeBO.messages) }
+    private fun onGetArtworkCompletedSuccessfully(artworkBO: ArtworkBO) {
+        updateState { it.copy(artworkId = artworkBO.uid, messageList = artworkBO.messages) }
         doOnUiState {
             if(!isAssistantMuted) {
-                speakMessage(text = inquizeBO.messages.last().text)
+                speakMessage(text = artworkBO.messages.last().text)
             }
         }
     }
@@ -165,14 +165,14 @@ class ChatViewModel @Inject constructor(
 data class ChatUiState(
     override val isLoading: Boolean = false,
     override val errorMessage: String? = null,
-    val inquizeId: String = String.EMPTY,
+    val artworkId: String = String.EMPTY,
     val infoMessage: String = String.EMPTY,
     val isAssistantResponseLoading: Boolean = false,
     val isAssistantMuted: Boolean = false,
     val isAssistantSpeaking: Boolean = false,
     val isListening: Boolean = false,
     val lastQuestion: String = String.EMPTY,
-    val messageList: List<InquizeMessageBO> = emptyList()
+    val messageList: List<ArtworkMessageBO> = emptyList()
 ): UiState<ChatUiState>(isLoading, errorMessage) {
     override fun copyState(isLoading: Boolean, errorMessage: String?): ChatUiState =
         copy(isLoading = isLoading, errorMessage = errorMessage)

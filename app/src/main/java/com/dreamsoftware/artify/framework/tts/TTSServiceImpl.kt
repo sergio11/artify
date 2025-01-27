@@ -69,6 +69,6 @@ class TTSServiceImpl @Inject constructor(
 
     private companion object {
         // utterance id is required for the UtteranceProgressListener callback to work
-        private const val UTTERANCE_ID = "inquize.tttService"
+        private const val UTTERANCE_ID = "artify.tttService"
     }
 }

@@ -11,13 +11,13 @@ class SignUpRemoteDataException(message: String? = null, cause: Throwable? = nul
 class SavePictureRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
 class DeletePictureRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
 
-// Inquize Data Source
-class SearchInquizeRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class CreateInquizeRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class AddInquizeMessageRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class FetchInquizeByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class FetchAllInquizeRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
-class DeleteInquizeByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+// Artwork Data Source
+class SearchArtworkRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class CreateArtworkRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class AddArtworkMessageRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class FetchArtworkByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class FetchAllArtworkRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
+class DeleteArtworkByIdRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)
 
 // Multimodal LLM Data Source
 class ResolveQuestionFromContextRemoteDataException(message: String? = null, cause: Throwable? = null): RemoteDataException(message, cause)

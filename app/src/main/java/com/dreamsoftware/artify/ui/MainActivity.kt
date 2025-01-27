@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.dreamsoftware.brownie.utils.network.BrownieNetworkConnectivityMonitor
 import com.dreamsoftware.artify.ui.screens.app.AppScreen
-import com.dreamsoftware.artify.ui.theme.InquizeTheme
+import com.dreamsoftware.artify.ui.theme.ArtifyTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         networkConnectivityMonitor.registerNetworkCallback()
         setContent {
-            InquizeTheme {
+            ArtifyTheme {
                 AppScreen()
             }
         }
