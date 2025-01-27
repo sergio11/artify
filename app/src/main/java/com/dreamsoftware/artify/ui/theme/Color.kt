@@ -1,0 +1,74 @@
+package com.dreamsoftware.artify.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val md_theme_light_primary = Color(0xFFD32F2F) // Bright Red for the primary color
+val md_theme_light_onPrimary = Color(0xFFFFFFFF) // White for contrast on primary text
+val md_theme_light_primaryContainer = Color(0xFFFFEBEE) // Light Red for primary containers
+val md_theme_light_onPrimaryContainer = Color(0xFFD32F2F) // Dark Red for text in primary containers
+
+val md_theme_light_secondary = Color(0xFFB71C1C) // Dark Red for secondary elements
+val md_theme_light_onSecondary = Color(0xFFFFFFFF) // White for text on secondary elements
+val md_theme_light_secondaryContainer = Color(0xFFFFCDD2) // Light Red for secondary containers
+val md_theme_light_onSecondaryContainer = Color(0xFFB71C1C) // Dark Red for text in secondary containers
+
+val md_theme_light_tertiary = Color(0xFFFF7043) // Coral for tertiary elements
+val md_theme_light_onTertiary = Color(0xFFFFFFFF) // White for contrast on tertiary text
+val md_theme_light_tertiaryContainer = Color(0xFFFFCCBC) // Light Coral for tertiary containers
+val md_theme_light_onTertiaryContainer = Color(0xFFBF360C) // Dark Coral for text in tertiary containers
+
+val md_theme_light_error = Color(0xFFBA1A1A) // Red for errors
+val md_theme_light_errorContainer = Color(0xFFFFCDD2) // Light Red for error containers
+val md_theme_light_onError = Color(0xFFFFFFFF) // White for error text
+val md_theme_light_onErrorContainer = Color(0xFF410002) // Dark Red for text in error containers
+
+val md_theme_light_background = Color(0xFFFFFF) // White for background
+val md_theme_light_onBackground = Color(0xFF1B1B1F) // Dark Gray for background text
+val md_theme_light_surface = Color(0xFFF8F8F8) // Light surface color
+val md_theme_light_onSurface = Color(0xFF1B1B1F) // Text on light surfaces
+val md_theme_light_surfaceVariant = Color(0xFFE0E0E0) // Light variant for surface differentiation
+val md_theme_light_onSurfaceVariant = Color(0xFF46464F) // Dark text for surface variant
+val md_theme_light_outline = Color(0xFF757575) // Outline color
+val md_theme_light_inverseOnSurface = Color(0xFFF3EFF4) // Inverse text on surfaces
+val md_theme_light_inverseSurface = Color(0xFF313034) // Inverse surface color
+val md_theme_light_inversePrimary = Color(0xFFFFEBEE) // Inverse variant of primary color
+val md_theme_light_shadow = Color(0xFF000000) // Shadow color
+val md_theme_light_surfaceTint = Color(0xFFD32F2F) // Surface tint for accents
+val md_theme_light_outlineVariant = Color(0xFFBDBDBD) // Variant outline color
+val md_theme_light_scrim = Color(0xFF000000) // Scrim color (background overlay)
+
+
+val md_theme_dark_primary = Color(0xFFD32F2F) // Bright Red for the primary color
+val md_theme_dark_onPrimary = Color(0xFF311B92) // Darker Red for primary text
+val md_theme_dark_primaryContainer = Color(0xFF512DA8) // Medium Red for primary containers in dark theme
+val md_theme_dark_onPrimaryContainer = Color(0xFFEDE7F6) // Light Red for text in primary containers
+
+val md_theme_dark_secondary = Color(0xFFB71C1C) // Dark Red for secondary elements
+val md_theme_dark_onSecondary = Color(0xFF4A0072) // Darker Red for secondary text
+val md_theme_dark_secondaryContainer = Color(0xFF6A1B9A) // Medium Red for secondary containers
+val md_theme_dark_onSecondaryContainer = Color(0xFFF3E5F5) // Light Red for text in secondary containers
+
+val md_theme_dark_tertiary = Color(0xFFFF7043) // Coral for tertiary elements
+val md_theme_dark_onTertiary = Color(0xFFBF360C) // Dark Coral for tertiary text
+val md_theme_dark_tertiaryContainer = Color(0xFFD84315) // Dark Coral for tertiary containers
+val md_theme_dark_onTertiaryContainer = Color(0xFFFFF3E0) // Very Light Coral for text in tertiary containers
+
+val md_theme_dark_error = Color(0xFFFFB4AB) // Light Red for errors in dark theme
+val md_theme_dark_errorContainer = Color(0xFF93000A) // Dark Red for error containers
+val md_theme_dark_onError = Color(0xFF690005) // Darker text for errors
+val md_theme_dark_onErrorContainer = Color(0xFFFFDAD6) // Light Red for text in error containers
+
+val md_theme_dark_background = Color(0xFF121212) // Dark background
+val md_theme_dark_onBackground = Color(0xFFECEFF1) // Light Gray for text on background
+val md_theme_dark_surface = Color(0xFF1C1C1E) // Dark surface color
+val md_theme_dark_onSurface = Color(0xFFECEFF1) // Light Gray for text on surfaces
+val md_theme_dark_surfaceVariant = Color(0xFF424242) // Variant surface color for section differentiation
+val md_theme_dark_onSurfaceVariant = Color(0xFFBDBDBD) // Text on surface variant
+val md_theme_dark_outline = Color(0xFF757575) // Outline color for dark theme
+val md_theme_dark_inverseOnSurface = Color(0xFF121212) // Inverse text on dark surfaces
+val md_theme_dark_inverseSurface = Color(0xFFECEFF1) // Inverse surface color
+val md_theme_dark_inversePrimary = Color(0xFFFFEBEE) // Inverse variant of primary color
+val md_theme_dark_shadow = Color(0xFF000000) // Shadow color for dark theme
+val md_theme_dark_surfaceTint = Color(0xFFD32F2F) // Surface tint for accents in dark mode
+val md_theme_dark_outlineVariant = Color(0xFF616161) // Outline variant for dark theme
+val md_theme_dark_scrim = Color(0xFF000000) // Background shadow color
