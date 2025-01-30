@@ -70,7 +70,7 @@ fun HomeScreenContent(
             }
             BrownieDialog(
                 isVisible = confirmDeleteArtwork != null,
-                mainLogoRes = R.drawable.main_logo_inverse,
+                mainLogoRes = R.drawable.main_logo,
                 titleRes = R.string.delete_artwork_dialog_title,
                 descriptionRes = R.string.delete_artwork_dialog_description,
                 cancelRes = R.string.delete_artwork_dialog_cancel,

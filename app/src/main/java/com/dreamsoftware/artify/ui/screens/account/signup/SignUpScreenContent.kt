@@ -94,6 +94,7 @@ fun SignUpScreenContent(
                         .padding(horizontal = 16.dp, vertical = 8.dp)
                         .fillMaxWidth(),
                     textRes = R.string.signup_signup_button_text,
+                    textColor = MaterialTheme.colorScheme.onPrimary,
                     type = BrownieButtonTypeEnum.LARGE,
                     onClick = actionListener::onSignUp
                 )

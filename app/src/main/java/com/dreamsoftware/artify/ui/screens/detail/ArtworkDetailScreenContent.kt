@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Density
@@ -32,7 +33,7 @@ internal fun ArtworkDetailScreenContent(
         LoadingDialog(isShowingDialog = isLoading)
         BrownieDialog(
             isVisible = showDeleteArtworkDialog,
-            mainLogoRes = R.drawable.main_logo_inverse,
+            mainLogoRes = R.drawable.main_logo,
             titleRes = R.string.delete_artwork_dialog_title,
             descriptionRes = R.string.delete_artwork_dialog_description,
             cancelRes = R.string.delete_artwork_dialog_cancel,
@@ -81,6 +82,7 @@ internal fun ArtworkDetailScreenContent(
                     .padding(horizontal = 10.dp, vertical = 8.dp)
                     .fillMaxWidth(),
                 type = BrownieButtonTypeEnum.LARGE,
+                textColor = MaterialTheme.colorScheme.onPrimary,
                 onClick = actionListener::onOpenChatClicked,
                 textRes = R.string.artwork_detail_open_chat_text
             )
@@ -89,7 +91,9 @@ internal fun ArtworkDetailScreenContent(
                     .padding(horizontal = 10.dp, vertical = 8.dp)
                     .fillMaxWidth(),
                 type = BrownieButtonTypeEnum.LARGE,
-                style = BrownieButtonStyleTypeEnum.DANGER,
+                textColor = MaterialTheme.colorScheme.secondary,
+                borderColor = MaterialTheme.colorScheme.secondary,
+                style = BrownieButtonStyleTypeEnum.TRANSPARENT,
                 onClick = actionListener::onArtworkDeleted,
                 textRes = R.string.artwork_detail_delete_button_text
             )
