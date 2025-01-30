@@ -158,6 +158,7 @@ private fun ColumnScope.ConfirmArtwork(
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .fillMaxWidth(),
                 type = BrownieButtonTypeEnum.LARGE,
+                textColor = MaterialTheme.colorScheme.onPrimary,
                 onClick = actionListener::onCreate,
                 textRes = R.string.create_artwork_save_button_text
             )
@@ -166,8 +167,10 @@ private fun ColumnScope.ConfirmArtwork(
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .fillMaxWidth(),
                 type = BrownieButtonTypeEnum.LARGE,
-                style = BrownieButtonStyleTypeEnum.DANGER,
+                style = BrownieButtonStyleTypeEnum.INVERSE,
                 onClick = actionListener::onCancel,
+                textColor = MaterialTheme.colorScheme.secondary,
+                borderColor = MaterialTheme.colorScheme.secondary,
                 textRes = R.string.create_artwork_cancel_button_text
             )
         }

@@ -3,6 +3,7 @@ package com.dreamsoftware.artify.ui.screens.account.onboarding
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -42,6 +43,7 @@ fun OnboardingScreenContent(
         BrownieButton(
             modifier = Modifier.fillMaxWidth(0.8f),
             textRes = R.string.onboarding_login_button_text,
+            textColor = MaterialTheme.colorScheme.onPrimary,
             type = BrownieButtonTypeEnum.LARGE,
             onClick = actionListener::onNavigateToSignIn
         )
@@ -49,6 +51,7 @@ fun OnboardingScreenContent(
         BrownieButton(
             modifier = Modifier.fillMaxWidth(0.8f),
             textRes = R.string.onboarding_signup_button_text,
+            textColor = MaterialTheme.colorScheme.onPrimary,
             type = BrownieButtonTypeEnum.LARGE,
             style = BrownieButtonStyleTypeEnum.INVERSE,
             onClick = actionListener::onNavigateToSignUp
