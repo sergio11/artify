@@ -25,6 +25,8 @@ This app, **Artify**, includes images and resources designed by [Freepik](https:
   <img width="250px" src="doc/screenshots/previewed/image5.jpeg" />
 </p>
 
+Slides are built using the  template from [Previewed](https://previewed.app/template/AFC0B4CB). I extend my gratitude to them for their remarkable work and contribution.
+
 ## 🚀 Key Features
 
 - **AI-Powered Visual Exploration** 🤖📷: Use Gemini SDK to recognize artworks, sculptures, and other artistic elements through your camera and obtain instant, accurate information.
@@ -97,3 +99,139 @@ Brownie encourages using the MVI architecture pattern for effective screen state
 - **Intent**: Represents user actions or events that trigger state changes.
 
 For more information, visit [Brownie UI Library on GitHub](https://github.com/sergio11/brownie_ui_library) and give it a ⭐ to show your support!
+
+## App Screenshots
+
+Here are some screenshots to showcase the app's design and features.
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_1_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_2_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_3_framed.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_4_framed.png" />
+   &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_5_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_6_framed.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_7_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_8_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_9_framed.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_10_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_11_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+   <img width="250px" loading="lazy" src="doc/screenshots/picture_12_framed.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_13_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_14_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_15_framed.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_16_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_17_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_18_framed.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_19_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_20_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_21_framed.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_22_framed.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_23.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_24.png" />
+</p>
+
+<p>
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_25.png" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="250px" loading="lazy" src="doc/screenshots/picture_26.png" />
+</p>
+
+
+
+## Contribution
+Contributions to Artify are highly encouraged! If you're interested in adding new features, resolving bugs, or enhancing the project's functionality, please feel free to submit pull requests.
+
+## Credits
+Artify is developed and maintained by Sergio Sánchez Sánchez (Dream Software). Special thanks to the open-source community and the contributors who have made this project possible. If you have any questions, feedback, or suggestions, feel free to reach out at dreamsoftware92@gmail.com.
+
+## Acknowledgements 🙏
+
+ - Special thanks to **technophilist** for the Perceive app, which served as a source of inspiration for this project. Visit [Perceive](https://github.com/technophilist/Perceive).
+
+- We express our deep appreciation to [Freepik](https://www.freepik.es/) for generously providing the resources used in this project.
+
+- <div> Icons and images takes from <a href="https://www.freepik.com" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es'</a></div>
+- Template mockup from https://previewed.app/template/AFC0B4CB
+
+ ## Visitors Count
+
+ <img width="auto" src="https://profile-counter.glitch.me/artify/count.svg" />
+
+ ## Please Share & Star the repository to keep me motivated.
+  <a href = "https://github.com/sergio11/artify/stargazers">
+     <img src = "https://img.shields.io/github/stars/sergio11/artify" />
+  </a>
+
+## License ⚖️
+
+This project is licensed under the MIT License, an open-source software license that allows developers to freely use, copy, modify, and distribute the software. 🛠️ This includes use in both personal and commercial projects, with the only requirement being that the original copyright notice is retained. 📄
+
+Please note the following limitations:
+
+- The software is provided "as is", without any warranties, express or implied. 🚫🛡️
+- If you distribute the software, whether in original or modified form, you must include the original copyright notice and license. 📑
+- The license allows for commercial use, but you cannot claim ownership over the software itself. 🏷️
+
+The goal of this license is to maximize freedom for developers while maintaining recognition for the original creators.
+
+```
+MIT License
+
+Copyright (c) 2025 Dream software - Sergio Sánchez 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
