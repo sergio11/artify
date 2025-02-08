@@ -167,7 +167,7 @@ private fun ColumnScope.ConfirmArtwork(
                     .padding(horizontal = 16.dp, vertical = 8.dp)
                     .fillMaxWidth(),
                 type = BrownieButtonTypeEnum.LARGE,
-                style = BrownieButtonStyleTypeEnum.INVERSE,
+                style = BrownieButtonStyleTypeEnum.TRANSPARENT,
                 onClick = actionListener::onCancel,
                 textColor = MaterialTheme.colorScheme.secondary,
                 borderColor = MaterialTheme.colorScheme.secondary,
